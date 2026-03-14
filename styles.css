@@ -561,28 +561,30 @@ body::after {
 
 .pilot-section {
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
+  grid-template-columns: 1fr 0.9fr;
   gap: 1.5rem;
   align-items: start;
 }
 
 .pilot-form {
   display: grid;
-  gap: 1rem;
-  padding: 1.5rem;
+  gap: 0.8rem;
+  padding: 1.15rem;
   border-radius: var(--radius-lg);
+  max-width: 32rem;
 }
 
 .pilot-form label {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
 .pilot-form input,
 .pilot-form textarea {
   width: 100%;
-  padding: 0.9rem 1rem;
+  padding: 0.75rem 0.9rem;
   border: 1px solid var(--line);
   border-radius: 16px;
   color: var(--text);
@@ -598,7 +600,7 @@ body::after {
 
 .form-note {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.86rem;
 }
 
 .form-note.success {
