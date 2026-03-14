@@ -2,7 +2,7 @@ const chips = document.querySelectorAll(".chip");
 const panelStory = document.querySelector(".panel-story h2");
 const panelText = document.querySelector(".panel-description");
 const forms = document.querySelectorAll(".signup-form");
-const openSignup = document.getElementById("open-signup");
+const openSignupButtons = document.querySelectorAll("[data-open-signup]");
 const closeSignup = document.getElementById("close-signup");
 const signupModal = document.getElementById("signup-modal");
 const backdrop = document.querySelector("[data-close-signup]");
@@ -99,10 +99,12 @@ forms.forEach((form) => {
   });
 });
 
-openSignup?.addEventListener("click", () => {
-  if (signupModal) {
-    signupModal.hidden = false;
-  }
+openSignupButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (signupModal) {
+      signupModal.hidden = false;
+    }
+  });
 });
 
 closeSignup?.addEventListener("click", () => {

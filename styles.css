@@ -594,7 +594,7 @@ body::after {
 
 .pilot-section {
   display: grid;
-  grid-template-columns: 1fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   align-items: start;
   padding-top: 2rem;
@@ -613,6 +613,13 @@ body::after {
   box-shadow:
     0 24px 60px rgba(143, 48, 27, 0.12),
     0 0 0 6px rgba(213, 92, 58, 0.06);
+}
+
+.pilot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .pilot-form label {

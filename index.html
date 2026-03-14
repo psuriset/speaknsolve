@@ -109,59 +109,15 @@
               AI coaching features and live cohort experience.
             </p>
             <div class="pilot-badge">Limited pilot for first 25 families</div>
+            <div class="pilot-actions">
+              <button class="button button-primary" type="button" data-open-signup>
+                Join the pilot
+              </button>
+              <a class="button button-secondary" href="#experience">
+                See what kids experience
+              </a>
+            </div>
           </div>
-
-          <form
-            class="pilot-form signup-form"
-            id="pilot-form"
-            method="GET"
-            target="form-target"
-            action="https://script.google.com/macros/s/AKfycbw-olmzQSUPHyBPHXOnxecQFGTktfmYnckV9UEvw1hi75FqWaS2XKCBixooHoaoBny1PQ/exec"
-          >
-            <label class="field-half">
-              Parent or educator name
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label class="field-half">
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </label>
-            <label class="field-half">
-              Student age or grade
-              <input type="text" name="grade" placeholder="Age 10 or Grade 5" />
-            </label>
-            <label class="field-full">
-              Student interests
-              <textarea
-                name="interests"
-                rows="3"
-                placeholder="Examples: debates, puzzles, football, robotics, Minecraft, nature"
-                required
-              ></textarea>
-            </label>
-            <label class="field-full">
-              Notes
-              <textarea
-                name="notes"
-                rows="2"
-                placeholder="What do you want help with most right now?"
-              ></textarea>
-            </label>
-            <input type="hidden" name="source" value="speaknsolve-site" />
-            <input type="hidden" name="submittedAt" value="" />
-            <button class="button button-primary" type="submit">
-              Request early access now
-            </button>
-            <p class="form-note" aria-live="polite">
-              Join the pilot and we will use your submission to follow up on fit,
-              format, and next steps.
-            </p>
-          </form>
           <iframe name="form-target" class="form-target" title="Form submission target"></iframe>
         </section>
 
@@ -459,7 +415,7 @@
       </main>
     </div>
 
-    <button class="floating-signup" id="open-signup" type="button">
+    <button class="floating-signup" id="open-signup" type="button" data-open-signup>
       Sign up
     </button>
 
