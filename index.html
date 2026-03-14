@@ -34,17 +34,17 @@
             <p class="hero-text">
               SpeakNSolve helps ages 8 to 14 build two durable skills:
               mathematical reasoning and articulation. We combine Indian rigor,
-              U.S. creativity, adaptive AI coaching, and live human thinking
-              coaches.
+              U.S. creativity, always-available AI coaching, and live human
+              thinking coaches.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#pilot">Join the pilot</a>
               <a class="button button-secondary" href="#founders">Meet the team</a>
             </div>
             <ul class="hero-points">
-              <li>Math reasoning + speaking as the core wedge</li>
-              <li>AI speech and explanation coaching between classes</li>
-              <li>Live mentors for confidence, structure, and accountability</li>
+              <li>AI support on demand, whenever practice is needed</li>
+              <li>Human coaches for judgment, confidence, and live feedback</li>
+              <li>Guided thinking, not instant answer dumping</li>
             </ul>
           </div>
 
@@ -61,22 +61,87 @@
             <div class="panel-grid">
               <article class="mini-card">
                 <span>AI Speech Coach</span>
-                <strong>Clarity, tone, pacing, filler-word feedback</strong>
+                <strong>Always available practice with clarity and pacing feedback</strong>
               </article>
               <article class="mini-card">
                 <span>AI Reasoning Coach</span>
-                <strong>Checks steps, logic, and explanation quality</strong>
+                <strong>Guides thinking steps instead of just giving the answer</strong>
               </article>
               <article class="mini-card">
-                <span>Thinking Coaches</span>
-                <strong>Human mentors who push depth and confidence</strong>
+                <span>Human Thinking Coaches</span>
+                <strong>Real mentors who deepen reasoning and build confidence</strong>
               </article>
               <article class="mini-card accent-card">
-                <span>Outcome</span>
-                <strong>Kids who can reason, speak, and present ideas</strong>
+                <span>Hybrid Model</span>
+                <strong>AI for repetition. Humans for mentorship and momentum.</strong>
               </article>
             </div>
           </div>
+        </section>
+
+        <section class="section pilot-section" id="pilot">
+          <div class="pilot-copy">
+            <p class="eyebrow">Pilot program</p>
+            <h2>Start with families who want more than tutoring.</h2>
+            <p>
+              SpeakNSolve is built for parents who want both academic rigor and
+              communication confidence. Join the early pilot to shape the first
+              AI coaching features and live cohort experience.
+            </p>
+          </div>
+
+          <form
+            class="pilot-form"
+            id="pilot-form"
+            method="GET"
+            target="form-target"
+            action="https://script.google.com/macros/s/AKfycbw-olmzQSUPHyBPHXOnxecQFGTktfmYnckV9UEvw1hi75FqWaS2XKCBixooHoaoBny1PQ/exec"
+          >
+            <label>
+              Parent or educator name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </label>
+            <label>
+              Student age or grade
+              <input type="text" name="grade" placeholder="Age 10 or Grade 5" />
+            </label>
+            <label>
+              Student interests
+              <textarea
+                name="interests"
+                rows="4"
+                placeholder="Examples: debates, puzzles, football, robotics, Minecraft, nature"
+                required
+              ></textarea>
+            </label>
+            <label>
+              Notes
+              <textarea
+                name="notes"
+                rows="3"
+                placeholder="What do you want help with most right now?"
+              ></textarea>
+            </label>
+            <input type="hidden" name="source" value="speaknsolve-site" />
+            <input type="hidden" name="submittedAt" id="submitted-at" value="" />
+            <button class="button button-primary" type="submit">
+              Request early access
+            </button>
+            <p class="form-note" id="form-note" aria-live="polite">
+              Join the pilot and we will use your submission to follow up on fit,
+              format, and next steps.
+            </p>
+          </form>
+          <iframe name="form-target" class="form-target" title="Form submission target"></iframe>
         </section>
 
         <section class="section" id="model">
@@ -105,8 +170,8 @@
               <span class="step-number">03</span>
               <h3>Coach with AI + humans</h3>
               <p>
-                AI handles repetition, feedback, and adaptation. Human thinking
-                coaches handle nuance, judgment, and momentum.
+                AI gives on-demand practice, patient feedback, and adaptive
+                prompts. Human coaches handle nuance, judgment, and motivation.
               </p>
             </article>
             <article class="step-card">
@@ -168,31 +233,31 @@
               <h3>Speech coach</h3>
               <p>
                 Students record responses and get feedback on confidence, tone,
-                filler words, pacing, and clarity.
+                filler words, pacing, and clarity between live sessions.
               </p>
             </article>
             <article class="step-card">
               <span class="step-number">AI</span>
               <h3>Reasoning coach</h3>
               <p>
-                The platform evaluates how students think, not just whether the
-                final answer is correct.
+                The platform evaluates how students think and nudges them
+                forward without shortcutting the reasoning process.
               </p>
             </article>
             <article class="step-card">
-              <span class="step-number">AI</span>
-              <h3>Debate partner</h3>
+              <span class="step-number">Human</span>
+              <h3>Thinking coach</h3>
               <p>
-                Students defend positions against an AI agent to strengthen
-                articulation, logic, and confidence.
+                Live mentors turn practice into growth through discussion,
+                accountability, and personalized encouragement.
               </p>
             </article>
             <article class="step-card">
-              <span class="step-number">Data</span>
+              <span class="step-number">Hybrid</span>
               <h3>Progress intelligence</h3>
               <p>
-                Over time SpeakNSolve builds a unique dataset of how kids reason
-                and communicate.
+                Together, AI feedback and human observation create a clearer
+                view of how each child reasons and communicates.
               </p>
             </article>
           </div>
@@ -214,7 +279,7 @@
               </p>
             </article>
             <article class="subject-card cool">
-              <h3>Mehak Swami</h3>
+              <h3>Mahak Swami</h3>
               <p>
                 Cofounder and curriculum lead. Education strategist and
                 curriculum designer specializing in child pedagogy and online
@@ -268,70 +333,6 @@
           </div>
         </section>
 
-        <section class="section pilot-section" id="pilot">
-          <div class="pilot-copy">
-            <p class="eyebrow">Pilot program</p>
-            <h2>Start with families who want a better learning fit.</h2>
-            <p>
-              SpeakNSolve is built for parents who care about both rigor and
-              expression. Join the early pilot to shape curriculum, format, and
-              the first AI coaching features.
-            </p>
-          </div>
-
-          <form
-            class="pilot-form"
-            id="pilot-form"
-            method="GET"
-            target="form-target"
-            action="https://script.google.com/macros/s/AKfycbw-olmzQSUPHyBPHXOnxecQFGTktfmYnckV9UEvw1hi75FqWaS2XKCBixooHoaoBny1PQ/exec"
-          >
-            <label>
-              Parent or educator name
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label>
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </label>
-            <label>
-              Student age or grade
-              <input type="text" name="grade" placeholder="Age 10 or Grade 5" />
-            </label>
-            <label>
-              Student interests
-              <textarea
-                name="interests"
-                rows="4"
-                placeholder="Examples: debates, puzzles, football, robotics, Minecraft, nature"
-                required
-              ></textarea>
-            </label>
-            <label>
-              Notes
-              <textarea
-                name="notes"
-                rows="3"
-                placeholder="What do you want help with most right now?"
-              ></textarea>
-            </label>
-            <input type="hidden" name="source" value="speaknsolve-site" />
-            <input type="hidden" name="submittedAt" id="submitted-at" value="" />
-            <button class="button button-primary" type="submit">
-              Request early access
-            </button>
-            <p class="form-note" id="form-note" aria-live="polite">
-              Submissions can be sent to Google Sheets and email after you add
-              your Apps Script web app URL in `config.js`.
-            </p>
-          </form>
-          <iframe name="form-target" class="form-target" title="Form submission target"></iframe>
-        </section>
       </main>
     </div>
 
