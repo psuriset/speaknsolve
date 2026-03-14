@@ -475,6 +475,39 @@ body::after {
   padding-left: 1.1rem;
 }
 
+.practice-section {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.practice-panel {
+  padding: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.practice-copy p,
+.practice-list {
+  color: var(--muted);
+}
+
+.practice-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.2rem;
+  line-height: 1.9;
+}
+
+.practice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
 .step-card {
   padding: 1.4rem;
   border-radius: var(--radius-md);
@@ -562,16 +595,18 @@ body::after {
 .pilot-section {
   display: grid;
   grid-template-columns: 1fr 0.9fr;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: start;
+  padding-top: 2rem;
 }
 
 .pilot-form {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
-  padding: 1.15rem;
-  border-radius: var(--radius-lg);
-  max-width: 32rem;
+  padding: 1rem;
+  border-radius: 22px;
+  max-width: 28rem;
 }
 
 .pilot-form label {
@@ -581,12 +616,22 @@ body::after {
   font-weight: 600;
 }
 
+.field-half {
+  grid-column: span 1;
+}
+
+.field-full,
+.pilot-form button,
+.pilot-form .form-note {
+  grid-column: 1 / -1;
+}
+
 .pilot-form input,
 .pilot-form textarea {
   width: 100%;
-  padding: 0.75rem 0.9rem;
+  padding: 0.7rem 0.85rem;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 14px;
   color: var(--text);
   font: inherit;
   background: rgba(255, 253, 249, 0.88);
@@ -632,7 +677,9 @@ body::after {
   .panel-grid,
   .proof-strip,
   .experience-grid,
-  .mockup-grid {
+  .mockup-grid,
+  .pilot-form,
+  .practice-section {
     grid-template-columns: 1fr;
   }
 }
