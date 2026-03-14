@@ -167,6 +167,15 @@ body::after {
   line-height: 1.7;
 }
 
+.hero-subhead {
+  max-width: 38rem;
+  margin: 1.1rem 0 0;
+  color: var(--accent-deep);
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -299,6 +308,42 @@ body::after {
   padding: 3rem 0;
 }
 
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 0 1rem;
+}
+
+.proof-card,
+.experience-card,
+.mockup-card {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.proof-card {
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--radius-md);
+}
+
+.proof-card span,
+.mockup-header span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.proof-card strong {
+  font-size: 1.2rem;
+}
+
 .interest-band {
   display: grid;
   gap: 1rem;
@@ -349,6 +394,85 @@ body::after {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.experience-grid,
+.mockup-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.experience-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.experience-card,
+.mockup-card {
+  padding: 1.35rem;
+  border-radius: var(--radius-lg);
+}
+
+.experience-card strong {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-size: 1.05rem;
+}
+
+.experience-card p,
+.mockup-card p,
+.mockup-list {
+  color: var(--muted);
+}
+
+.mockup-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mockup-header {
+  margin-bottom: 1rem;
+}
+
+.mockup-header strong {
+  font-size: 1.2rem;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.score-row div,
+.reasoning-box {
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 253, 249, 0.72);
+}
+
+.score-row label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.reasoning-box {
+  margin-bottom: 1rem;
+}
+
+.reasoning-box p {
+  margin: 0 0 0.7rem;
+}
+
+.reasoning-box p:last-child,
+.mockup-list {
+  margin-bottom: 0;
+}
+
+.mockup-list {
+  padding-left: 1.1rem;
 }
 
 .step-card {
@@ -503,7 +627,10 @@ body::after {
   }
 
   .subject-layout,
-  .panel-grid {
+  .panel-grid,
+  .proof-strip,
+  .experience-grid,
+  .mockup-grid {
     grid-template-columns: 1fr;
   }
 }
