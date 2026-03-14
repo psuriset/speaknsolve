@@ -37,3 +37,4 @@ Then visit `http://localhost:8000/speaknsolve-site/`.
 - `script.js` - interest chip interaction and live form submission
 - `config.js` - frontend configuration including the form endpoint
 - `google-apps-script/Code.gs` - Google Apps Script backend for Sheets + email
+# speaknsolve
