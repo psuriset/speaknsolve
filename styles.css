@@ -607,6 +607,12 @@ body::after {
   padding: 1rem;
   border-radius: 22px;
   max-width: 28rem;
+  border: 1px solid rgba(213, 92, 58, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(252, 242, 231, 0.92));
+  box-shadow:
+    0 24px 60px rgba(143, 48, 27, 0.12),
+    0 0 0 6px rgba(213, 92, 58, 0.06);
 }
 
 .pilot-form label {
@@ -648,6 +654,19 @@ body::after {
   font-size: 0.86rem;
 }
 
+.pilot-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  margin-top: 1rem;
+  border-radius: var(--radius-sm);
+  color: var(--accent-deep);
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: rgba(213, 92, 58, 0.12);
+  border: 1px solid rgba(213, 92, 58, 0.18);
+}
+
 .form-note.success {
   color: var(--teal);
   font-weight: 700;
@@ -659,6 +678,70 @@ body::after {
   border: 0;
   position: absolute;
   visibility: hidden;
+}
+
+.floating-signup {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 30;
+  min-height: 3rem;
+  padding: 0.8rem 1.15rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: #fff7f2;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  box-shadow: 0 18px 34px rgba(143, 48, 27, 0.28);
+}
+
+.signup-modal[hidden] {
+  display: none;
+}
+
+.signup-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+.signup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(29, 34, 48, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.signup-dialog {
+  position: relative;
+  width: min(36rem, calc(100% - 1.25rem));
+  margin: 5vh auto 0;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 249, 241, 0.98), rgba(252, 241, 229, 0.96));
+  box-shadow: 0 24px 60px rgba(52, 37, 19, 0.22);
+}
+
+.signup-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: rgba(29, 34, 48, 0.08);
+}
+
+.modal-form {
+  max-width: 100%;
+  margin-top: 1rem;
 }
 
 @media (max-width: 960px) {
@@ -712,5 +795,10 @@ body::after {
   .pilot-section,
   .interest-band {
     padding: 2rem 0;
+  }
+
+  .floating-signup {
+    right: 0.8rem;
+    bottom: 0.8rem;
   }
 }

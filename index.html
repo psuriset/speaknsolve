@@ -108,10 +108,11 @@
               communication confidence. Join the early pilot to shape the first
               AI coaching features and live cohort experience.
             </p>
+            <div class="pilot-badge">Limited pilot for first 25 families</div>
           </div>
 
           <form
-            class="pilot-form"
+            class="pilot-form signup-form"
             id="pilot-form"
             method="GET"
             target="form-target"
@@ -152,11 +153,11 @@
               ></textarea>
             </label>
             <input type="hidden" name="source" value="speaknsolve-site" />
-            <input type="hidden" name="submittedAt" id="submitted-at" value="" />
+            <input type="hidden" name="submittedAt" value="" />
             <button class="button button-primary" type="submit">
-              Request early access
+              Request early access now
             </button>
-            <p class="form-note" id="form-note" aria-live="polite">
+            <p class="form-note" aria-live="polite">
               Join the pilot and we will use your submission to follow up on fit,
               format, and next steps.
             </p>
@@ -456,6 +457,65 @@
         </section>
 
       </main>
+    </div>
+
+    <button class="floating-signup" id="open-signup" type="button">
+      Sign up
+    </button>
+
+    <div class="signup-modal" id="signup-modal" hidden>
+      <div class="signup-backdrop" data-close-signup></div>
+      <div class="signup-dialog" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+        <button class="signup-close" type="button" id="close-signup" aria-label="Close signup">
+          ×
+        </button>
+        <p class="eyebrow">Join the pilot</p>
+        <h2 id="signup-title">Reserve a spot for your child.</h2>
+        <form
+          class="pilot-form signup-form modal-form"
+          method="GET"
+          target="form-target"
+          action="https://script.google.com/macros/s/AKfycbw-olmzQSUPHyBPHXOnxecQFGTktfmYnckV9UEvw1hi75FqWaS2XKCBixooHoaoBny1PQ/exec"
+        >
+          <label class="field-half">
+            Parent name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label class="field-half">
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label class="field-half">
+            Student age or grade
+            <input type="text" name="grade" placeholder="Age 10 or Grade 5" />
+          </label>
+          <label class="field-full">
+            Student interests
+            <textarea
+              name="interests"
+              rows="3"
+              placeholder="Examples: debates, puzzles, football, robotics, Minecraft"
+              required
+            ></textarea>
+          </label>
+          <label class="field-full">
+            Notes
+            <textarea
+              name="notes"
+              rows="2"
+              placeholder="What do you want help with most right now?"
+            ></textarea>
+          </label>
+          <input type="hidden" name="source" value="speaknsolve-site-modal" />
+          <input type="hidden" name="submittedAt" value="" />
+          <button class="button button-primary" type="submit">
+            Request early access
+          </button>
+          <p class="form-note" aria-live="polite">
+            We will follow up with next steps for the pilot.
+          </p>
+        </form>
+      </div>
     </div>
 
     <script src="./config.js"></script>

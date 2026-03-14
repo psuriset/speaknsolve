@@ -1,10 +1,11 @@
 const chips = document.querySelectorAll(".chip");
 const panelStory = document.querySelector(".panel-story h2");
 const panelText = document.querySelector(".panel-description");
-const form = document.getElementById("pilot-form");
-const formNote = document.getElementById("form-note");
-const submitButton = form?.querySelector('button[type="submit"]');
-const submittedAtInput = document.getElementById("submitted-at");
+const forms = document.querySelectorAll(".signup-form");
+const openSignup = document.getElementById("open-signup");
+const closeSignup = document.getElementById("close-signup");
+const signupModal = document.getElementById("signup-modal");
+const backdrop = document.querySelector("[data-close-signup]");
 
 const interestCopy = {
   Space: {
@@ -56,31 +57,62 @@ chips.forEach((chip) => {
   });
 });
 
-form?.addEventListener("submit", (event) => {
-  if (!form || !formNote || !submitButton) {
-    return;
+forms.forEach((form) => {
+  const formNote = form.querySelector(".form-note");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const submittedAtInput = form.querySelector('input[name="submittedAt"]');
+
+  form.addEventListener("submit", () => {
+    if (!formNote || !submitButton) {
+      return;
+    }
+
+    if (submittedAtInput) {
+      submittedAtInput.value = new Date().toISOString();
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+    formNote.textContent =
+      "Submitting your request. Check the Google Sheet and email in a few seconds.";
+    formNote.classList.remove("success");
+
+    window.setTimeout(() => {
+      const nameField = form.elements.namedItem("name");
+      const name =
+        nameField && "value" in nameField && typeof nameField.value === "string"
+          ? nameField.value.trim() || "there"
+          : "there";
+
+      formNote.textContent = `Thanks, ${name}. If the deployment is correct, your request is now in Google Sheets and a notification email has been sent.`;
+      formNote.classList.add("success");
+      submitButton.disabled = false;
+      submitButton.textContent = "Request early access";
+      form.reset();
+
+      if (signupModal && !signupModal.hidden && form.classList.contains("modal-form")) {
+        window.setTimeout(() => {
+          signupModal.hidden = true;
+        }, 1200);
+      }
+    }, 1800);
+  });
+});
+
+openSignup?.addEventListener("click", () => {
+  if (signupModal) {
+    signupModal.hidden = false;
   }
+});
 
-  if (submittedAtInput) {
-    submittedAtInput.value = new Date().toISOString();
+closeSignup?.addEventListener("click", () => {
+  if (signupModal) {
+    signupModal.hidden = true;
   }
+});
 
-  submitButton.disabled = true;
-  submitButton.textContent = "Submitting...";
-  formNote.textContent =
-    "Submitting your request. Check the Google Sheet and email in a few seconds.";
-  formNote.classList.remove("success");
-  window.setTimeout(() => {
-    const nameField = form.elements.namedItem("name");
-    const name =
-      nameField && "value" in nameField && typeof nameField.value === "string"
-        ? nameField.value.trim() || "there"
-        : "there";
-
-    formNote.textContent = `Thanks, ${name}. If the deployment is correct, your request is now in Google Sheets and a notification email has been sent.`;
-    formNote.classList.add("success");
-    submitButton.disabled = false;
-    submitButton.textContent = "Request early access";
-    form.reset();
-  }, 1800);
+backdrop?.addEventListener("click", () => {
+  if (signupModal) {
+    signupModal.hidden = true;
+  }
 });
