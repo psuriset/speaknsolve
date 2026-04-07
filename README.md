@@ -2,6 +2,20 @@
 
 Static landing page for SpeakNSolve.
 
+## Deploy on Cloudflare Pages
+
+This project is a static site and can be deployed directly to Cloudflare Pages.
+
+Use the following settings when creating the Pages project:
+
+- Framework preset: `None`
+- Production branch: `main`
+- Build command: leave blank
+- Build output directory: `/`
+
+After the first deploy, Cloudflare will give you a `*.pages.dev` URL. You can
+then add your custom domain from the Pages project under `Custom domains`.
+
 ## Form integration
 
 The pilot form can submit to Google Sheets and email through a Google Apps Script

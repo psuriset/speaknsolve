@@ -19,4 +19,4 @@ fi
 git commit -m "$commit_message"
 git push origin main
 
-echo "Pushed to origin/main. Netlify should auto-deploy."
+echo "Pushed to origin/main. Cloudflare Pages should auto-deploy if Git integration is connected."
