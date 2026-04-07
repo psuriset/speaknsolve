@@ -138,9 +138,10 @@ body {
 
 .hero h1 {
   margin: 0;
-  max-width: 13ch;
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
-  line-height: 1.02;
+  max-width: none;
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+  line-height: 1.08;
+  white-space: nowrap;
 }
 
 .hero-subhead,
@@ -620,8 +621,8 @@ body {
   }
 
   .hero h1 {
-    max-width: 10ch;
-    font-size: clamp(2rem, 9vw, 3rem);
+    max-width: none;
+    font-size: clamp(1.5rem, 5.6vw, 2.2rem);
   }
 
   .hero-subline {
