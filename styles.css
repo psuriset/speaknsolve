@@ -138,9 +138,10 @@ body {
 
 .hero h1 {
   margin: 0;
-  max-width: 13ch;
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
-  line-height: 1.02;
+  max-width: none;
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+  line-height: 1.08;
+  white-space: nowrap;
 }
 
 .hero-subhead,
@@ -311,6 +312,60 @@ body {
   width: min(860px, 100%);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 0.4rem;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pillar-card {
+  padding: 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.pillar-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.85rem;
+  font-size: 1.08rem;
+}
+
+.pillar-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.pillar-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.pillar-card li + li {
+  margin-top: 0.45rem;
+}
+
+.pillar-card-blue {
+  border-top: 4px solid var(--blue);
+}
+
+.pillar-card-purple {
+  border-top: 4px solid var(--purple);
+}
+
+.pillar-card-gold {
+  border-top: 4px solid var(--gold);
+}
+
+.pillar-card-orange {
+  border-top: 4px solid var(--orange);
 }
 
 .proof-card {
@@ -535,6 +590,7 @@ body {
 @media (max-width: 960px) {
   .panel-grid,
   .proof-strip,
+  .pillars-grid,
   .experience-grid,
   .mockup-grid,
   .practice-block {
@@ -565,8 +621,8 @@ body {
   }
 
   .hero h1 {
-    max-width: 10ch;
-    font-size: clamp(2rem, 9vw, 3rem);
+    max-width: none;
+    font-size: clamp(1.5rem, 5.6vw, 2.2rem);
   }
 
   .hero-subline {
