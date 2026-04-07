@@ -1,0 +1,14 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="iconTitle iconDesc">
+  <title id="iconTitle">Speak n Solve icon</title>
+  <desc id="iconDesc">Blue and green chat bubble monogram with a smile and a check mark.</desc>
+  <path d="M72 18C42.2 18 18 42.2 18 72C18 101.8 42.2 126 72 126C91.9 126 109.2 115.1 118.4 98.8" stroke="#1F75D8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M109.6 22.8C101.1 19 91.8 17.2 82.2 17.6" stroke="#1F75D8" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="48" cy="67" r="5.5" fill="#1F75D8"/>
+  <circle cx="67" cy="67" r="5.5" fill="#1F75D8"/>
+  <circle cx="86" cy="67" r="5.5" fill="#1F75D8"/>
+  <path d="M51 92C59.2 98 70.6 98.2 79 92.6L88 86.6" stroke="#1F75D8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M101 68C130.8 68 155 92.2 155 122C155 151.8 130.8 176 101 176C81.1 176 63.8 165.1 54.6 148.8" stroke="#58C638" stroke-width="12" stroke-linecap="round"/>
+  <path d="M65.4 72.8C73.9 69 83.2 67.2 92.8 67.6" stroke="#58C638" stroke-width="12" stroke-linecap="round"/>
+  <path d="M82 123L99 140L129 109" stroke="#58C638" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 161L26 169L36 147" fill="#58C638"/>
+</svg>
