@@ -11,7 +11,7 @@ This repo is a static site, so it can be deployed to Cloudflare Pages without a 
    - **Production branch:** `main`
    - **Framework preset:** `None`
    - **Build command:** leave empty
-   - **Build output directory:** `.`
+   - **Build output directory:** `public`
 
 Cloudflare Pages will publish the root of this repository as a static site.
 
