@@ -44,6 +44,7 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000/public/`.
 
+Public blog: https://speaknsolve.org/
 ## Files
 
 - `public/index.html` - page structure and content
