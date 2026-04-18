@@ -107,8 +107,9 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 360px);
+  gap: 1.6rem;
+  align-items: center;
   padding: 2rem 0 2.5rem;
 }
 
@@ -171,6 +172,29 @@ body {
   font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-frame {
+  width: min(100%, 340px);
+  padding: 0.7rem;
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 248, 255, 0.84));
+  border: 1px solid rgba(31, 117, 216, 0.12);
+  box-shadow: 0 24px 60px rgba(27, 39, 67, 0.16);
+}
+
+.hero-student-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 314 / 392;
+  object-fit: cover;
+  border-radius: 28px;
 }
 
 .pillar-blue {
