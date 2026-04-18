@@ -1,7 +1,7 @@
 const CONFIG = {
   spreadsheetId: "153yG4z230McR_Gt51SE7rmsJ0qDYHstWXM7ZZJLfu2E",
   sheetName: "Leads",
-  notificationEmail: "pradeepkumars.uvce@gmail.com",
+  notificationEmail: "speaknsolveofficial@gmail.com",
   allowedOrigin: "*",
 };
 
