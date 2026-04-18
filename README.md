@@ -13,6 +13,9 @@ Use the following settings when creating the Pages project:
 - Build command: leave blank
 - Build output directory: `public`
 
+Do not use `npx wrangler deploy` for this repo. That command is for Workers, not
+Pages. If you need a CLI deploy, use `npx wrangler pages deploy public`.
+
 After the first deploy, Cloudflare will give you a `*.pages.dev` URL. You can
 then add your custom domain from the Pages project under `Custom domains`.
 
@@ -48,9 +51,8 @@ Then visit `http://localhost:8000/public/`.
 
 - `public/index.html` - page structure and content
 - `public/styles.css` - layout, visual system, and responsive styling
-- `public/script.js` - interest chip interaction and live form submission
+- `public/script.js` - signup modal and live form submission behavior
 - `public/config.js` - frontend configuration including the form endpoint
-- `public/bianca-hero.png` - hero image
 - `public/assets/` - brand assets used by the site
 - `google-apps-script/Code.gs` - Google Apps Script backend for Sheets + email
 # speaknsolve
