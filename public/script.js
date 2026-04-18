@@ -1,66 +1,18 @@
-const chips = document.querySelectorAll(".chip");
-const panelStory = document.querySelector(".panel-story h2");
-const panelText = document.querySelector(".panel-description");
 const forms = document.querySelectorAll(".signup-form");
 const openSignupButtons = document.querySelectorAll("[data-open-signup]");
 const closeSignup = document.getElementById("close-signup");
 const signupModal = document.getElementById("signup-modal");
 const backdrop = document.querySelector("[data-close-signup]");
-
-const interestCopy = {
-  Space: {
-    title: "Space missions + reasoning + explanation",
-    text: "Students solve trajectory, distance, and logic challenges, then explain how they reached the answer like mission presenters.",
-  },
-  Animals: {
-    title: "Animals + observation + confident speaking",
-    text: "Use habitats, comparisons, and evidence-based claims to build clear speaking and structured thinking.",
-  },
-  Sports: {
-    title: "Sports stats + math reasoning + confidence",
-    text: "Translate scores, probability, and strategy into problem solving that students can explain with energy and clarity.",
-  },
-  Art: {
-    title: "Art + patterns + storytelling",
-    text: "Blend visual structure with presentation practice so students learn to describe ideas instead of just making them.",
-  },
-  Coding: {
-    title: "Coding + logic + explanation-first learning",
-    text: "Turn debugging into reasoning practice where students must explain the logic behind every fix and decision.",
-  },
-  Music: {
-    title: "Music + structure + verbal fluency",
-    text: "Use rhythm and pattern to reinforce sequencing, memory, pacing, and stronger spoken delivery.",
-  },
-  Robotics: {
-    title: "Robotics + systems thinking + articulation",
-    text: "Connect build challenges to applied math, step-by-step explanation, and future STEM confidence.",
-  },
-  Nature: {
-    title: "Nature + inquiry + argument building",
-    text: "Turn everyday curiosity into hypotheses, evidence, and spoken explanations that make science feel alive.",
-  },
-};
-
-chips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    chips.forEach((item) => item.classList.remove("is-active"));
-    chip.classList.add("is-active");
-
-    const copy = interestCopy[chip.textContent.trim()];
-    if (!copy) {
-      return;
-    }
-
-    panelStory.textContent = copy.title;
-    panelText.textContent = copy.text;
-  });
-});
+const config = window.SPEAKNSOLVE_CONFIG || {};
 
 forms.forEach((form) => {
   const formNote = form.querySelector(".form-note");
   const submitButton = form.querySelector('button[type="submit"]');
   const submittedAtInput = form.querySelector('input[name="submittedAt"]');
+
+  if (config.formEndpoint) {
+    form.action = config.formEndpoint;
+  }
 
   form.addEventListener("submit", () => {
     if (!formNote || !submitButton) {
