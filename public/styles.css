@@ -584,6 +584,7 @@ body {
 }
 
 .pilot-form input,
+.pilot-form select,
 .pilot-form textarea {
   width: 100%;
   padding: 0.72rem 0.85rem;
@@ -595,6 +596,7 @@ body {
 }
 
 .pilot-form input:focus,
+.pilot-form select:focus,
 .pilot-form textarea:focus {
   outline: 2px solid rgba(213, 92, 58, 0.24);
   border-color: rgba(213, 92, 58, 0.32);
