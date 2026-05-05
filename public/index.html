@@ -263,8 +263,25 @@
             <input type="email" name="email" placeholder="you@example.com" required />
           </label>
           <label class="field-half">
+            Phone number
+            <input type="tel" name="phone" placeholder="(555) 123-4567" autocomplete="tel" required />
+          </label>
+          <label class="field-half">
             Student age or grade
             <input type="text" name="grade" placeholder="Age or grade" />
+          </label>
+          <label class="field-half">
+            Student time zone
+            <select name="studentTimezone" required>
+              <option value="">Select time zone</option>
+              <option value="Eastern Time">Eastern Time</option>
+              <option value="Central Time">Central Time</option>
+              <option value="Mountain Time">Mountain Time</option>
+              <option value="Pacific Time">Pacific Time</option>
+              <option value="Alaska Time">Alaska Time</option>
+              <option value="Hawaii Time">Hawaii Time</option>
+              <option value="Other">Other</option>
+            </select>
           </label>
           <label class="field-full">
             Student interests
