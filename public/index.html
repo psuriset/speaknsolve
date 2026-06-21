@@ -8,6 +8,7 @@
       name="description"
       content="SpeakNSolve helps kids build math reasoning, communication, and confidence through live coaching and structured practice."
     />
+    <meta name="google-signin-client_id" content="" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -28,6 +29,7 @@
           <a href="#tools">Skills</a>
           <a href="#practice">Competition</a>
           <a href="#pilot">Join pilot</a>
+          <button class="nav-login" type="button" data-open-auth>Login</button>
         </nav>
       </header>
 
@@ -57,6 +59,9 @@
             <div class="hero-actions">
               <button class="button button-primary" type="button" data-open-signup>
                 Start Learning
+              </button>
+              <button class="button button-secondary" type="button" data-open-auth>
+                Login with Google
               </button>
             </div>
           </div>
@@ -134,11 +139,14 @@
               Join the early pilot and help shape the first version of
               SpeakNSolve.
             </p>
-            <div class="pilot-actions">
-              <button class="button button-primary" type="button" data-open-signup>
-                Sign up
-              </button>
-            </div>
+          <div class="pilot-actions">
+            <button class="button button-primary" type="button" data-open-signup>
+              Sign up
+            </button>
+            <button class="button button-secondary" type="button" data-open-whatsapp>
+              Sign up with WhatsApp
+            </button>
+          </div>
           </div>
           <iframe name="form-target" class="form-target" title="Form submission target"></iframe>
         </section>
@@ -259,6 +267,14 @@
             <input type="text" name="name" placeholder="Your name" required />
           </label>
           <label class="field-half">
+            Login role
+            <select name="role" required>
+              <option value="parent">Parent</option>
+              <option value="teacher">Teacher</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+          <label class="field-half">
             Email
             <input type="email" name="email" placeholder="you@example.com" required />
           </label>
@@ -300,6 +316,7 @@
               placeholder="What do you want help with most right now?"
             ></textarea>
           </label>
+          <input type="hidden" name="signupMethod" value="pilot-form" />
           <input type="hidden" name="source" value="speaknsolve-site-modal" />
           <input type="hidden" name="submittedAt" value="" />
           <button class="button button-primary" type="submit">
@@ -312,7 +329,86 @@
       </div>
     </div>
 
+    <div class="auth-modal" id="auth-modal" hidden>
+      <div class="auth-backdrop" data-close-auth></div>
+      <div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+        <button class="auth-close" type="button" id="close-auth" aria-label="Close login">×</button>
+        <p class="eyebrow">Account access</p>
+        <h2 id="auth-title">Choose your Speak n Solve login.</h2>
+        <div class="role-picker" aria-label="Choose login role">
+          <label><input type="radio" name="auth-role" value="admin" /> Admin</label>
+          <label><input type="radio" name="auth-role" value="teacher" /> Teacher</label>
+          <label><input type="radio" name="auth-role" value="parent" checked /> Parent</label>
+        </div>
+        <button class="google-login-button" type="button" id="google-login-button">
+          <span aria-hidden="true">G</span>
+          Continue with Google
+        </button>
+        <p class="auth-note" id="auth-note" aria-live="polite">
+          Admin, teacher, and parent accounts are separate role contexts.
+        </p>
+        <div class="auth-profile" id="auth-profile" hidden>
+          <strong id="auth-profile-name">Signed in</strong>
+          <span id="auth-profile-role">Parent</span>
+          <button class="button button-secondary" type="button" id="logout-button">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="whatsapp-modal" id="whatsapp-modal" hidden>
+      <div class="auth-backdrop" data-close-whatsapp></div>
+      <div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="whatsapp-title">
+        <button class="auth-close" type="button" id="close-whatsapp" aria-label="Close WhatsApp signup">×</button>
+        <p class="eyebrow">WhatsApp signup</p>
+        <h2 id="whatsapp-title">Join with WhatsApp.</h2>
+        <form class="whatsapp-form" id="whatsapp-form">
+          <div class="role-picker" aria-label="Choose WhatsApp signup role">
+            <label><input type="radio" name="whatsapp-role" value="admin" /> Admin</label>
+            <label><input type="radio" name="whatsapp-role" value="teacher" /> Teacher</label>
+            <label><input type="radio" name="whatsapp-role" value="parent" checked /> Parent</label>
+          </div>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            WhatsApp number
+            <input type="tel" name="phone" placeholder="+1 555 123 4567" autocomplete="tel" required />
+          </label>
+          <label>
+            Student age or grade
+            <input type="text" name="grade" placeholder="Age or grade" />
+          </label>
+          <button class="button button-primary" type="submit">Create WhatsApp signup</button>
+          <p class="form-note" id="whatsapp-note" aria-live="polite">
+            We will use this number for future WhatsApp verification and class updates.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="support-chat" id="support-chat">
+      <button class="support-chat-toggle" id="support-chat-toggle" type="button" aria-label="Open support chat">
+        ?
+      </button>
+      <section class="support-chat-panel" id="support-chat-panel" aria-label="Customer service chat" hidden>
+        <header class="support-chat-header">
+          <div>
+            <strong>Speak n Solve Support</strong>
+            <span>WhatsApp handoff ready</span>
+          </div>
+          <button type="button" id="close-support-chat" aria-label="Close support chat">×</button>
+        </header>
+        <div class="support-chat-messages" id="support-chat-messages"></div>
+        <form class="support-chat-form" id="support-chat-form">
+          <input id="support-chat-input" type="text" placeholder="Ask about classes, login, or WhatsApp" autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </div>
+
     <script src="./config.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="./script.js"></script>
   </body>
 </html>

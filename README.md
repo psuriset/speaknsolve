@@ -37,6 +37,29 @@ When the form submits successfully, the Apps Script:
 - sends an email notification
 - returns JSON to the static site
 
+## Login, WhatsApp signup, and support chat
+
+The static site includes lightweight frontend account flows for the pilot:
+
+- Google login with separate role contexts for `Admin`, `Teacher`, and `Parent`
+- WhatsApp signup that captures role, name, phone number, and student grade
+- A customer-service chat widget that stores messages locally and is ready for a future WhatsApp handoff
+
+Configuration lives in `public/config.js`:
+
+```js
+window.SPEAKNSOLVE_CONFIG = {
+  formEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
+  googleClientId: "YOUR_GOOGLE_CLIENT_ID",
+  whatsappNumber: "+15551234567",
+};
+```
+
+If `googleClientId` is blank, the Google button uses a local preview prompt so
+the flow can still be tested without production OAuth setup. The current account
+and chat queue are stored in browser `localStorage`; production persistence can
+be added behind the same UI later.
+
 ## Open locally
 
 Open `public/index.html` in a browser, or run:
