@@ -51,6 +51,7 @@ Configuration lives in `public/config.js`:
 window.SPEAKNSOLVE_CONFIG = {
   formEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
   googleClientId: "YOUR_GOOGLE_CLIENT_ID",
+  parentPortalUrl: "https://bhithashri385.github.io/math-quest-portal/",
   whatsappNumber: "+15551234567",
 };
 ```
@@ -59,6 +60,15 @@ If `googleClientId` is blank, the Google button uses a local preview prompt so
 the flow can still be tested without production OAuth setup. The current account
 and chat queue are stored in browser `localStorage`; production persistence can
 be added behind the same UI later.
+
+Parents can use the **Parent portal with Gmail** button in the practice section.
+That button opens the Google login modal with the `Parent` role already selected.
+After sign-in, the modal shows an **Open parent portal** link using
+`parentPortalUrl`.
+
+For production Gmail login, create a Google OAuth web client and set
+`googleClientId` in `public/config.js`. Without that client ID, the site only
+uses the local preview prompt and does not perform real Google verification.
 
 ## Open locally
 

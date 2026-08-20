@@ -5,6 +5,7 @@ const signupModal = document.getElementById("signup-modal");
 const backdrop = document.querySelector("[data-close-signup]");
 const config = window.SPEAKNSOLVE_CONFIG || {};
 const openAuthButtons = document.querySelectorAll("[data-open-auth]");
+const openParentLoginButtons = document.querySelectorAll("[data-open-parent-login]");
 const authModal = document.getElementById("auth-modal");
 const closeAuth = document.getElementById("close-auth");
 const authBackdrop = document.querySelector("[data-close-auth]");
@@ -13,6 +14,7 @@ const authNote = document.getElementById("auth-note");
 const authProfile = document.getElementById("auth-profile");
 const authProfileName = document.getElementById("auth-profile-name");
 const authProfileRole = document.getElementById("auth-profile-role");
+const parentPortalLink = document.getElementById("parent-portal-link");
 const logoutButton = document.getElementById("logout-button");
 const openWhatsappButtons = document.querySelectorAll("[data-open-whatsapp]");
 const whatsappModal = document.getElementById("whatsapp-modal");
@@ -36,6 +38,13 @@ const roleLabels = {
 function selectedRole(fieldName) {
   const field = document.querySelector(`input[name="${fieldName}"]:checked`);
   return field && roleLabels[field.value] ? field.value : "parent";
+}
+
+function selectAuthRole(role) {
+  const field = document.querySelector(`input[name="auth-role"][value="${role}"]`);
+  if (field) {
+    field.checked = true;
+  }
 }
 
 function normalizePhone(value) {
@@ -145,6 +154,7 @@ const AccountStore = {
 
 function updateAuthUi() {
   const user = AccountStore.current();
+  const parentPortalUrl = config.parentPortalUrl || "";
   if (authProfileName) {
     authProfileName.textContent = user ? user.name : "Signed in";
   }
@@ -156,15 +166,33 @@ function updateAuthUi() {
   }
   if (authNote) {
     authNote.textContent = user
-      ? `Signed in as ${user.name} (${roleLabels[user.role] || "Parent"}).`
+      ? `Signed in as ${user.name} (${roleLabels[user.role] || "Parent"}).${user.role === "parent" && parentPortalUrl ? " Parent portal access is ready." : ""}`
       : "Admin, teacher, and parent accounts are separate role contexts.";
+  }
+  if (parentPortalLink) {
+    const showParentPortal = Boolean(user && user.role === "parent" && parentPortalUrl);
+    parentPortalLink.hidden = !showParentPortal;
+    if (showParentPortal) {
+      parentPortalLink.href = parentPortalUrl;
+    }
   }
 }
 
-function openAuthModal() {
+function openAuthModal(role = null) {
+  if (role) {
+    selectAuthRole(role);
+  }
   if (authModal) {
     authModal.hidden = false;
     updateAuthUi();
+  }
+}
+
+function openParentPortalLogin() {
+  openAuthModal("parent");
+  if (authNote) {
+    authNote.textContent =
+      "Parent is selected. Continue with Google using your Gmail account, then open the parent portal.";
   }
 }
 
@@ -295,7 +323,11 @@ backdrop?.addEventListener("click", () => {
 });
 
 openAuthButtons.forEach((button) => {
-  button.addEventListener("click", openAuthModal);
+  button.addEventListener("click", () => openAuthModal());
+});
+
+openParentLoginButtons.forEach((button) => {
+  button.addEventListener("click", openParentPortalLogin);
 });
 
 closeAuth?.addEventListener("click", closeAuthModal);
