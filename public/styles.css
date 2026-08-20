@@ -769,17 +769,26 @@ body {
 }
 
 .support-chat-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 3.1rem;
   height: 3.1rem;
-  border: 1px solid rgba(31, 117, 216, 0.2);
+  border: 1px solid rgba(37, 211, 102, 0.3);
   border-radius: 50%;
   color: #fff;
   font: inherit;
   font-size: 1.2rem;
   font-weight: 900;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--blue), var(--purple));
-  box-shadow: 0 18px 34px rgba(31, 117, 216, 0.24);
+  background: #25d366;
+  box-shadow: 0 18px 34px rgba(18, 140, 126, 0.28);
+}
+
+.support-chat-toggle svg {
+  width: 1.85rem;
+  height: 1.85rem;
+  fill: #fff;
 }
 
 .support-chat-panel {
