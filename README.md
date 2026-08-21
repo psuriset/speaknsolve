@@ -52,7 +52,7 @@ window.SPEAKNSOLVE_CONFIG = {
   formEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
   googleClientId: "YOUR_GOOGLE_CLIENT_ID",
   parentPortalUrl: "https://bhithashri385.github.io/math-quest-portal/",
-  whatsappNumber: "+15551234567",
+  whatsappNumber: "+91-9880964672",
 };
 ```
 

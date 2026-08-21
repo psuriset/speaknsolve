@@ -55,6 +55,17 @@ function isValidPhone(value) {
   return /^\+?\d{10,15}$/.test(normalizePhone(value));
 }
 
+function whatsappDigits(value) {
+  return String(value || "").replace(/\D/g, "");
+}
+
+function whatsappChatUrl(message) {
+  const number = whatsappDigits(config.whatsappNumber);
+  if (!number) return "";
+  const text = encodeURIComponent(message || "Hi Speak n Solve, I need help.");
+  return `https://wa.me/${number}?text=${text}`;
+}
+
 function escapeHtml(value) {
   return String(value || "")
     .replace(/&/g, "&amp;")
@@ -413,7 +424,9 @@ const SupportChat = {
     if (lower.includes("parent")) {
       return "Parent login and WhatsApp signup are available now for pilot families.";
     }
-    return "Thanks. I saved this support message locally so it can later be handed off to WhatsApp customer service.";
+    return config.whatsappNumber
+      ? `Opening WhatsApp to send this to ${config.whatsappNumber}.`
+      : "Thanks. I saved this support message locally so it can later be handed off to WhatsApp customer service.";
   },
 };
 
@@ -462,8 +475,12 @@ supportChatForm?.addEventListener("submit", (event) => {
   if (supportChatInput) {
     supportChatInput.value = "";
   }
+  const whatsappUrl = whatsappChatUrl(text);
   window.setTimeout(() => {
     SupportChat.addMessage("bot", SupportChat.replyTo(text));
+    if (whatsappUrl) {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    }
   }, 200);
 });
 
